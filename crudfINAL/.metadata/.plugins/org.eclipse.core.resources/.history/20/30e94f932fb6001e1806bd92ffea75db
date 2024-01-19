@@ -1,0 +1,13 @@
+package com.demo.test;
+
+import java.util.Scanner;
+import com.demo.service.*;
+public class TestMain {
+  static Scanner sc;
+  static {
+	  sc=new Scanner(System.in);
+  }
+  public static void main(String[] args) {
+	  ServiceInterface s = new ServiceImp();
+  }
+}

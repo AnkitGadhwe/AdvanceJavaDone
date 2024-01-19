@@ -1,0 +1,26 @@
+package com.demo.dao;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import com.demo.model.Books;
+
+public class daoImp implements DaoInterface{
+  static SessionFactory sf;
+  static {
+	  sf=HibernateUtil.getConnection();
+  }
+@Override
+public void addBook(Books b) {
+	Session s=sf.openSession();
+	Transaction tr = s.beginTransaction();
+	s.save(b);
+	//tr.commit();
+}
+	
+	
+	
+	
+
+}

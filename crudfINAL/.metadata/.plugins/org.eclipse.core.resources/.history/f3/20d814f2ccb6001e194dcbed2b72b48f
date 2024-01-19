@@ -1,0 +1,25 @@
+package com.demo.controller;
+
+import java.util.List;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.demo.model.MenuCard;
+import com.demo.service.ServiceInterface;
+
+@Controller
+@RequestMapping("/Product")
+public class ProductController {
+  private ServiceInterface s;
+	
+  @GetMapping("/products")
+	public ModelAndView getProduct() {
+		List<MenuCard> list = s.displayAll();
+		return new ModelAndView("displayproduct","list",list);
+		
+	}
+	
+	
+}

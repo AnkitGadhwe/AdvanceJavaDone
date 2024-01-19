@@ -1,0 +1,9 @@
+package com.demo.dao;
+
+import com.demo.model.Books;
+
+public interface DaoInterface {
+
+	void addBook(Books b);
+
+}

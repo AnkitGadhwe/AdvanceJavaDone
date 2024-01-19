@@ -1,0 +1,65 @@
+package com.demo.service;
+
+
+import java.util.List;
+import java.util.Scanner;
+
+import com.demo.dao.DaoInterface;
+import com.demo.dao.daoImp;
+import com.demo.model.Books;
+
+public class ServiceImp implements ServiceInterface{
+static Scanner sc;
+static {
+	sc=new Scanner(System.in);
+}
+
+private DaoInterface d;
+
+public ServiceImp() {
+	d=new daoImp();
+}
+	@Override
+	public void AddData() {
+		System.out.println("Enter Id");
+		int id=sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Book name");
+		String name=sc.nextLine();
+		System.out.println("Enter Book Type");
+		String type=sc.nextLine();
+		System.out.println("Enter Book cost");
+		int cost=sc.nextInt();
+		
+		Books b = new Books(id,name,type,cost);
+		d.addBook(b);
+	}
+	@Override
+	public List<Books> DisplayAll() {
+		return d.DisplayAll();
+	}
+	@Override
+	public Books DisplayById() {
+		System.out.println("Enter Id");
+		int id=sc.nextInt();
+		
+		return d.getById(id);
+	}
+	@Override
+	public Books Update() {
+		System.out.println("Enter Id");
+		int id=sc.nextInt();
+		sc.nextLine();
+		System.out.println("Enter Book name");
+		String name=sc.nextLine();
+		System.out.println("Enter Book Type");
+		String type=sc.nextLine();
+		System.out.println("Enter Book cost");
+		int cost=sc.nextInt();
+		
+		Books b = new Books(id,name,type,cost);
+		d.Update(b);
+		
+	}
+
+}
